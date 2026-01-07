@@ -58,27 +58,27 @@ Inside
 
 Build an image with this command 
 
-  Docker build –t contain . 
+      Docker build –t contain . 
 
 Run docker container in background 
 
-    Docker run –d –p 8028:80 –name contersation contain 
+     Docker run –d –p 8028:80 –name contersation contain 
 
-       9.Run in browser 
+ 9.Run in browser 
  
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f1f07162-3c1d-461e-92af-87b606cfae62" />
 
-       10.Verify container is running  
+10.Verify container is running  
        
                  docker ps 
 
 Push image to the dockerhub with the following commands 
 
-docker login -u username 
+    docker login -u username 
 
-docker tag tagname username/imagename 
+    docker tag tagname username/imagename 
 
-docker push username/imagename 
+    docker push username/imagename 
  
 Check in dockerhub image is pushed 
 
