@@ -49,6 +49,7 @@ Create a nginx server file with the below required commands
 Create Dockerfile 
 
 Inside   
+
        FROM nginx:latest 
        
        COPY . /usr/share/nginx/html 
