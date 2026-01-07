@@ -16,7 +16,7 @@ Inside that create a index.html file.
  
 Create a nginx server file with the below required commands
 
-  sudo nano /etc/nginx/sites-available/application  -- To create a server configuration 
+    sudo nano /etc/nginx/sites-available/application  -- To create a server configuration 
   
   Inside configuration file
   
@@ -40,7 +40,7 @@ Create a nginx server file with the below required commands
        
   sudo ln -s /etc/nginx/sites-available/application /etc/nginx/sites-enabled/   --  enable the needed sites 
   
-  sudo nginx -t    --  check the status
+   sudo nginx -t    --  check the status
   
   Check in browser with Ip address in browser   (http://192.168.1.10:8028)
 
@@ -86,22 +86,22 @@ Check in dockerhub image is pushed
 
 Push container into a Github 
 
-   Download the files from mobaxterm to a windows
+     Download the files from mobaxterm to a windows
    
-   Create a Github Repository
+     Create a Github Repository
    
-   Clone the url 
+     Clone the url 
    
-     git clone https://github.com/rajapriya-raja/Application_Containerisation
+       git clone https://github.com/rajapriya-raja/Application_Containerisation
      
-     git status
+       git status
      
-     git add .
+       git add .
      
-     git status
+       git status
      
-     git commit -m "Commit messages"
+       git commit -m "Commit messages"
      
-     git push
+       git push
 
 
