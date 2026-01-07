@@ -8,6 +8,3 @@ while True:
       file.write(f"Started {datetime.now()}\n")
    print("Python")
    time.sleep(5)
-
-
-
