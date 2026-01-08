@@ -41,9 +41,9 @@ Create a nginx server file with the below required commands
 
        }
        
-  sudo ln -s /etc/nginx/sites-available/application /etc/nginx/sites-enabled/   --  enable the needed sites 
+       sudo ln -s /etc/nginx/sites-available/application /etc/nginx/sites-enabled/   --  enable the needed sites 
   
-   sudo nginx -t    --  check the status
+       sudo nginx -t    --  check the status
   
   Check in browser with Ip address in browser   (http://192.168.1.10:8028)
 
