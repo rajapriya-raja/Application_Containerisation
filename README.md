@@ -1,4 +1,5 @@
-Project 1
+                                                              PROJECT 1
+                                                    Application Containerization  
 
 Following steps to Create a Docker image for a static website and run it successfully on a specific port.  
 
@@ -107,7 +108,8 @@ Push container into a Github
        git push
 
 
-Project 2 
+                                                                      PROJECT 2: 
+                                                                   Data Persistence 
 
 Demonstrate how to manage stateful data in a containerized environment to 
 prevent data loss during container lifecycles. 
@@ -247,3 +249,65 @@ In terminal  do those commands ,
      git push origin main 
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/789dbe12-bcb5-4f55-8461-8d1b6b3f8be6" />
+
+                                                                   PROJECT 3
+                                                            Multi-Container Networking 
+
+Architect a system where two distinct containers communicate with each other over a private network using service discovery (DNS), rather than IP addresses. 
+
+Create a folder  
+ 
+    sudo mkdir –p /var/www/networking 
+
+Go inside a folder 
+ 
+    cd /var/www/networking 
+
+Create a docker-compose file  inside write all containers in a single yml file 
+
+     sudo  nano docker-compose.yml 
+
+Inside 
+
+version: "3.9"
+
+services:
+  priya:
+    image: redis:7
+    container_name: redisserver 
+    networks:
+      - redis-net
+
+  client:
+    image: redis:7
+    container_name: redisclient
+    depends_on:
+      - priya
+    networks:
+      - redis-net
+    command: ["sleep", "infinity"]
+
+networks:
+  redis-net:
+    driver: bridge
+    
+Run the docker-compose with this command  
+       sudo docker-compose up –d  
+
+Check container is running  
+       
+     sudo docker ps 
+
+Access a client container 
+     sudo  docker exec –it redisclient bash 
+
+Connect to redis service using service name  
+      redis-cli –h priya 
+ 
+then give input to test 
+       PING 
+
+  Output
+       PONG 
+
+<img width="1276" height="250" alt="image" src="https://github.com/user-attachments/assets/95189216-22cd-48db-8543-caaa037eaa7e" />
