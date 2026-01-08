@@ -201,11 +201,19 @@ Create a another container then check check the log files there
 Also have to create it in a same volume with a different container name  
  
        sudo docker run –d  --name pycontainer1 -v   pyvolume:/detail pyimage 
+
+       To check logs with this command 
+
+      sudo docker log pycontainer1
+
+It show like this
+
+<img width="946" height="448" alt="image" src="https://github.com/user-attachments/assets/8f613756-18f7-46ce-b6f0-7be07f3e1cf1" />
  
 Check the log files it is showing the content with this command 
  
         sudo docker exec –it pycontainer1  cat /detail/log.tx 
- 
+        
 It show old and new datas here,  
  <img width="905" height="174" alt="image" src="https://github.com/user-attachments/assets/2e49f041-a0db-4d57-b11b-095d8bb89025" />
  
