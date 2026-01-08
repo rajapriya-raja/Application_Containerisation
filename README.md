@@ -207,9 +207,8 @@ Check the log files it is showing the content with this command
         sudo docker exec –it pycontainer1  cat /detail/log.tx 
  
 It show old and new datas here,  
+ <img width="905" height="174" alt="image" src="https://github.com/user-attachments/assets/2e49f041-a0db-4d57-b11b-095d8bb89025" />
  
-       <img width="1417" height="269" alt="image" src="https://github.com/user-attachments/assets/fd9e4e2e-e552-464d-a0c0-3d19b00a5dfd" />
-
 Then push a image into a docker hub 
  
              sudo docker login  -u username 
