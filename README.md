@@ -108,6 +108,8 @@ Push container into a Github
        git push
 
 
+
+
                                                                       PROJECT 2: 
                                                                    Data Persistence 
 
@@ -184,8 +186,6 @@ it show the  output of the log files
  
 Now we have to check persistence is working, 
  
- 
-
 First stop  the container   
 
       sudo docker stop pycontainer 
@@ -250,6 +250,7 @@ In terminal  do those commands ,
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/789dbe12-bcb5-4f55-8461-8d1b6b3f8be6" />
 
+
                                                                    PROJECT 3
                                                             Multi-Container Networking 
 
@@ -269,27 +270,27 @@ Create a docker-compose file  inside write all containers in a single yml file
 
 Inside 
 
-version: "3.9"
+    version: "3.9" 
+      
+    services: 
+       priya: 
+          image: redis:7 
+          container_name: redisserver  
+          networks: 
+              - redis-net 
 
-services:
-  priya:
-    image: redis:7
-    container_name: redisserver 
-    networks:
-      - redis-net
-
-  client:
-    image: redis:7
-    container_name: redisclient
-    depends_on:
-      - priya
-    networks:
-      - redis-net
-    command: ["sleep", "infinity"]
-
-networks:
-  redis-net:
-    driver: bridge
+       client: 
+          image: redis:7 
+          container_name: redisclient 
+          depends_on: 
+            - priya 
+          networks: 
+           - redis-net 
+          command: ["sleep", "infinity"] 
+        
+        networks: 
+          redis-net:      (redis-net is a user-defined custom bridge network, not the default bridge.) 
+            driver: bridge 
     
 Run the docker-compose with this command  
        sudo docker-compose up –d  
