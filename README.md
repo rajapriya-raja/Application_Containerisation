@@ -112,8 +112,8 @@ Push container into a Github
 
 
 
-                                                                        PROJECT 2: 
-                                                                     Data Persistence 
+                                  PROJECT 2: 
+                              Data Persistence 
                                                                      
 Demonstrate how to manage stateful data in a containerized environment to 
 prevent data loss during container lifecycles. 
