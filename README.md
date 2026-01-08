@@ -110,9 +110,11 @@ Push container into a Github
 
 
 
-                                          PROJECT 2: 
-                                    Data Persistence 
 
+
+                                                                        PROJECT 2: 
+                                                                     Data Persistence 
+                                                                     
 Demonstrate how to manage stateful data in a containerized environment to 
 prevent data loss during container lifecycles. 
 
@@ -180,7 +182,7 @@ Run a container
  
 Execute a  volume  
 
-  sudo docker exec –it pycontainer  cat /detail/log.txt 
+           sudo docker exec –it pycontainer  cat /detail/log.txt 
  
 it show the  output of the log files 
  
@@ -202,11 +204,11 @@ Create a another container then check check the log files there
  
 Also have to create it in a same volume with a different container name  
  
-       sudo docker run –d  --name pycontainer1 -v   pyvolume:/detail pyimage 
+       sudo docker run –d  --name pycontainer1 -v  pyvolume:/detail pyimage 
 
-       To check logs with this command 
+    To check logs with this command 
 
-      sudo docker log pycontainer1
+       sudo docker log pycontainer1
 
 It show like this
 
@@ -252,7 +254,7 @@ In terminal  do those commands ,
 
 
                                        PROJECT 3
-                                  Multi-Container Networking 
+                              Multi-Container Networking 
 
 Architect a system where two distinct containers communicate with each other over a private network using service discovery (DNS), rather than IP addresses. 
 
