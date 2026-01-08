@@ -1,4 +1,5 @@
 Project 1
+
 Following steps to Create a Docker image for a static website and run it successfully on a specific port.  
 
 Create a folder (application) 
@@ -107,11 +108,14 @@ Push container into a Github
 
 
 Project 2 
+
 Demonstrate how to manage stateful data in a containerized environment to 
 prevent data loss during container lifecycles. 
 
 Create a folder 
+
       sudo mkdir –p /var/www/persistence 
+      
 Change a directory inside that ,    
  
 Create a python file with the following command, 
@@ -146,12 +150,9 @@ Inside that  add a configurations here,
  
            ENTRYPOINT["python", "app.py"]   
  
- 
 Build an image 
 
- 
         sudo docker build –t pyimage  . 
- 
 
 Check images is created with this command  
 
@@ -169,51 +170,31 @@ it  listed  the created volumes
  
  <img width="918" height="155" alt="image" src="https://github.com/user-attachments/assets/1c482ef5-537d-4ded-a528-abe6fa3214b7" />
 
- 
 Run a container  
  
            sudo docker run –d  --name pycontainer  -v   pyvolume:/detail pyimage 
  
 Execute a  volume  
-            
-
-     
-
- 
-
- 
 
   sudo docker exec –it pycontainer  cat /detail/log.txt 
  
- 
-
 it show the  output of the log files 
  
- 
-
 Now we have to check persistence is working, 
  
  
 
 First stop  the container   
-     
-  
 
-sudo docker stop pycontainer 
+      sudo docker stop pycontainer 
  
- 
-
 Remove the container 
- 
-       
 
-sudo docker rm pycontainer 
+       sudo docker rm pycontainer 
 
 Check the log files it is showing the content with this command 
- 
-       
-
-sudo docker exec –it pycontainer  cat /detail/log.tx 
+      
+       sudo docker exec –it pycontainer  cat /detail/log.tx 
  
 Create a another container then check check the log files there   
  
@@ -223,55 +204,37 @@ Also have to create it in a same volume with a different container name
  
 Check the log files it is showing the content with this command 
  
-      sudo docker exec –it pycontainer1  cat /detail/log.tx 
+        sudo docker exec –it pycontainer1  cat /detail/log.tx 
  
 It show old and new datas here,  
  
        <img width="1417" height="269" alt="image" src="https://github.com/user-attachments/assets/fd9e4e2e-e552-464d-a0c0-3d19b00a5dfd" />
 
- 
 Then push a image into a docker hub 
  
-            sudo docker login  -u username 
- 
-
-            sudo docker tag pyimage username/ pyimage 
-
-  
-
-             Sudo docker push username/ pyimage 
+             sudo docker login  -u username 
+             
+             sudo docker tag pyimage username/ pyimage 
+            
+             sudo docker push username/ pyimage 
 
  
 <img width="1876" height="447" alt="image" src="https://github.com/user-attachments/assets/f9a9e926-2383-4555-a24e-28631db00538" />
-
- 
- 
 
 Push container into a Github  
 
 Download the files from mobaxterm to a windows 
  
-
 In terminal  do those commands ,  
  
-  git status 
-
-      
+     git status 
 
      git add . 
 
-      
-
      git status 
-
-      
 
      git commit -m "Commit messages" 
 
- 
-
      git pull origin main 
-
-      
-
+     
      git push origin main 
