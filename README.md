@@ -293,6 +293,7 @@ Inside
             driver: bridge 
     
 Run the docker-compose with this command  
+
        sudo docker-compose up –d  
 
 Check container is running  
@@ -300,10 +301,12 @@ Check container is running
      sudo docker ps 
 
 Access a client container 
+
      sudo  docker exec –it redisclient bash 
 
-Connect to redis service using service name  
-      redis-cli –h priya 
+Connect to redis service using service name 
+
+       redis-cli –h priya 
  
 then give input to test 
        PING 
