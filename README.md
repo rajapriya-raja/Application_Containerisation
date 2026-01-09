@@ -1,5 +1,5 @@
-                                                              PROJECT 1
-                                                    Application Containerization  
+                                                  PROJECT 1
+                                          Application Containerization  
 
 Following steps to Create a Docker image for a static website and run it successfully on a specific port.  
 
@@ -108,13 +108,10 @@ Push container into a Github
        git push
 
 
-
-
-
-
-                                                                PROJECT 2: 
-                                                             Data Persistence 
-                                                                     
+       
+                                                    PROJECT 2: 
+                                                 Data Persistence 
+                                                   
 Demonstrate how to manage stateful data in a containerized environment to 
 prevent data loss during container lifecycles. 
 
@@ -253,8 +250,8 @@ In terminal  do those commands ,
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/789dbe12-bcb5-4f55-8461-8d1b6b3f8be6" />
 
 
-                                                             PROJECT 3
-                                                     Multi-Container Networking 
+                                                      PROJECT 3
+                                              Multi-Container Networking 
 
 Architect a system where two distinct containers communicate with each other over a private network using service discovery (DNS), rather than IP addresses. 
 
