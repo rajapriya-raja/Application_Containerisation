@@ -22,6 +22,7 @@ Create a nginx server file with the below required commands
   
   Inside configuration file
   
+  
        server {
 
        listen 8028;
