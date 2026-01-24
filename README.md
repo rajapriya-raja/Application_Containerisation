@@ -1,4 +1,5 @@
-Project 1
+                                                  PROJECT 1
+                                          Application Containerization  
 
 Following steps to Create a Docker image for a static website and run it successfully on a specific port.  
 
@@ -41,9 +42,9 @@ Create a nginx server file with the below required commands
 
        }
        
-  sudo ln -s /etc/nginx/sites-available/application /etc/nginx/sites-enabled/   --  enable the needed sites 
+       sudo ln -s /etc/nginx/sites-available/application /etc/nginx/sites-enabled/   --  enable the needed sites 
   
-   sudo nginx -t    --  check the status
+       sudo nginx -t    --  check the status
   
   Check in browser with Ip address in browser   (http://192.168.1.10:8028)
 
@@ -107,9 +108,9 @@ Push container into a Github
      
        git push
 
-
-Project 2 
-
+                                                    PROJECT 2: 
+                                                 Data Persistence 
+                                                   
 Demonstrate how to manage stateful data in a containerized environment to 
 prevent data loss during container lifecycles. 
 
@@ -177,14 +178,12 @@ Run a container
  
 Execute a  volume  
 
-  sudo docker exec –it pycontainer  cat /detail/log.txt 
+           sudo docker exec –it pycontainer  cat /detail/log.txt 
  
 it show the  output of the log files 
  
 Now we have to check persistence is working, 
  
- 
-
 First stop  the container   
 
       sudo docker stop pycontainer 
@@ -201,11 +200,11 @@ Create a another container then check check the log files there
  
 Also have to create it in a same volume with a different container name  
  
-       sudo docker run –d  --name pycontainer1 -v   pyvolume:/detail pyimage 
+       sudo docker run –d  --name pycontainer1 -v  pyvolume:/detail pyimage 
 
-       To check logs with this command 
+    To check logs with this command 
 
-      sudo docker log pycontainer1
+       sudo docker log pycontainer1
 
 It show like this
 
@@ -248,3 +247,71 @@ In terminal  do those commands ,
      git push origin main 
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/789dbe12-bcb5-4f55-8461-8d1b6b3f8be6" />
+
+
+
+
+                                                      PROJECT 3
+                                              Multi-Container Networking 
+
+Architect a system where two distinct containers communicate with each other over a private network using service discovery (DNS), rather than IP addresses. 
+
+Create a folder  
+ 
+    sudo mkdir –p /var/www/networking 
+
+Go inside a folder 
+ 
+    cd /var/www/networking 
+
+Create a docker-compose file  inside write all containers in a single yml file 
+
+     sudo  nano docker-compose.yml 
+
+Inside 
+
+    version: "3.9" 
+      
+    services: 
+       priya: 
+          image: redis:7 
+          container_name: redisserver  
+          networks: 
+              - redis-net 
+
+       client: 
+          image: redis:7 
+          container_name: redisclient 
+          depends_on: 
+            - priya 
+          networks: 
+           - redis-net 
+          command: ["sleep", "infinity"] 
+        
+        networks: 
+          redis-net:      (redis-net is a user-defined custom bridge network, not the default bridge.) 
+            driver: bridge 
+    
+Run the docker-compose with this command  
+
+       sudo docker-compose up –d  
+
+Check container is running  
+       
+     sudo docker ps 
+
+Access a client container 
+
+     sudo  docker exec –it redisclient bash 
+
+Connect to redis service using service name 
+
+       redis-cli –h priya 
+ 
+then give input to test 
+       PING 
+
+  Output
+       PONG 
+
+<img width="1276" height="250" alt="image" src="https://github.com/user-attachments/assets/95189216-22cd-48db-8543-caaa037eaa7e" />
